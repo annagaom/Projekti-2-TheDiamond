@@ -1,0 +1,50 @@
+CREATE DATABASE lentopeli;
+
+USE lentopeli;
+
+import flightgame tietokanta ohjeiden mukaan source kyselyllä
+source full\path\tosql\file.sql
+
+Keep airport and contry tables, remove others:
+SET FOREIGN_KEY_CHECKS = 0;
+DROP TABLE game;
+DROP TABLE goal;
+DROP TABLE goal_reached;
+SET FOREIGN_KEY_CHECKS = 1;
+
+
+create table game (
+	id int auto_increment primary key,
+	player_range int(8) null,
+	player_flight int(2) null,
+	location varchar(40) null,
+	screen_name varchar(40) null,
+	goal_id int null,
+	goal_location varchar(40) null
+);
+
+
+create table goal (
+	id int auto_increment primary key,
+	name varchar(40) null
+);
+
+INSERT INTO goal (name) VALUES ('diamond');
+
+create table task (
+	id int auto_increment primary key,
+	name varchar(40) null,
+	answer int(8) null
+);
+
+INSERT INTO task(name, answer) VALUES ('14+6+7', 27), ('15-3+5', 17),
+('7+3-4', 6), ('12-7+4', 9),('10+5-8', 7), ('23-13+5', 15),
+('45+5-25', 25), ('30+4-2', 32), ('12-4+2', 10), ('23+7-7', 23),
+('24-4+3', 23), ('72/8', 9), ('16/4', 4),
+('45/9', 5), ('48/8', 6), ('81/9', 9), ('99/11', 9), ('36/4', 9),
+('5*5', 25), ('3*6', 18), ('8*9', 72), ('7*9', 63), ('11*9', 99),
+('12*4', 48), ('12*3', 36), ('9*3', 27), ('16*2', 32), ('10*10', 100);
+
+CREATE USER "user1"@localhost IDENTIFIED BY "sala1";
+GRANT SELECT, INSERT, UPDATE, DELETE
+ON lentopeli.* TO 'user1'@'localhost';
