@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"/>
+    <link href="diamond.css" rel="stylesheet">
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" defer></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.esm.js" defer></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.js" defer></script>
+    <script src="main.js" defer></script>
+    <title>The Diamond in the Europe</title>
+</head>
+<body>
+<div class="container">
+    <header class="page-header">
+        <h1 class="page-title">
+            <ion-icon name="diamond-outline"></ion-icon>&nbsp;The diamond&nbsp;
+        </h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html" class="button">Uusi peli</a>&nbsp&nbsp&nbsp
+                </li>
+                <li>
+                    <a href="about.html"  class="button">Pelistä</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="map">
+            <img src="" alt="map of europe">
+        </div>
+
+        <div class="boxes">
+            <section class="box">
+                <header>
+                    <h2>Pelin tilanne</h2>
+                </header>
+                <table>
+                    <tr>
+                        <td colspan="2">
+                            <h3 id="player-name" class="player-name">Pelaajan nimi</h3>
+                        </td>
+                    </tr>
+                    <tr class="text">
+                        <td>Lennot jäljellä</td>
+                        <td>Kilometrimäärä</td>
+                    </tr>
+                    <tr class="text">
+                        <td id="p-flight">9999 </td>
+                        <td id="p-range">9999</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section class="box">
+                <header>
+                    <h2>Etäisyys timantista</h2>
+                </header>
+                <table id="distance-table">
+                    <tr>
+                        <td>Etäisyys timanttiin on noin <span id="goal-distance">789</span></td>
+<!--                        <td>Sijaintisi: <span id="location"></span> </td>-->
+                    </tr>
+                </table>
+            </section>
+
+            <section class="box">
+                <header>
+                    <h2>Tehtävät</h2>
+                </header>
+                <table id="task-table">
+                    <tr>
+                        <td>
+                         <button id="task-button" class="button">Voita kilometrejä!</button>
+                        </td>
+                    </tr>
+                    <tr class="" id="invisible">
+                        <td id="task-field">
+                            <label for="task">Tehtävä:</label>
+                            <input type="text" id="task" name="task" placeholder="tehtävä"><br><br>
+                            <label for="answer">Vastaus:</label>
+                            <input type="text" id="answer" name="answer"><br><br>
+                            <input type="submit" id="task-submit-button" value="Lähetä" class="button">
+                        </td>
+
+                    </tr>
+                </table>
+            </section>
+        </div>
+
+    </main>
+    <footer>
+        <p>Ryhmä 5 2023</p>
+    </footer>
+    <div class="goal"></div>
+</div>
+<div id="player-modal" class="">
+    <form id="player-form" class="modal">
+        <label for="player-name">Enter your name:</label>
+        <input type="text" id="player-input" placeholder="Player name" required>
+        <input type="submit" value="Start game">
+    </form>
+</div>
+
+<dialog id="game-alert" class="modal">
+    <span>&#x2715;</span>
+    <h3 id="modal-title">Dialog modal</h3>
+    <p id="modal-text">modal text here</p>
+    <img src="img/diamond.jpg" alt="">
+    <a href="index.html" class="button" id="modal-button">Pelaa uudestaan</a>&nbsp&nbsp&nbsp
+</dialog>
+
+
+
+</body>
+</html>
